@@ -25,7 +25,7 @@ def data_split(
         train_size: float = 0.8
         ):
     
-    split_index = int(len(data) * 0.8)
+    split_index = int(len(data) * train_size)
 
     train_data = data.iloc[:split_index].copy()
     test_data = data.iloc[split_index:].copy()
@@ -136,6 +136,6 @@ def tune_random_forest(train_data: pd.DataFrame):
         print(f"{param_name}: {param_value}")
 
 
-    print(f"\nNajboljši macro f1 score: {best_score:.4f}")
+    print(f"\nNajboljši macro score: {best_score:.4f}")
 
     return best_model, best_params, best_score
